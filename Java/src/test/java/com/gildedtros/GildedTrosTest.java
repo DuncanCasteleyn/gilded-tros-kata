@@ -155,4 +155,24 @@ class GildedTrosTest {
         assertEquals(0, app.items[2].quality);
         assertEquals(0, app.items[3].quality);
     }
+
+    @Test
+    void updateQuality_WhenExecuted_WineQualityIncreaseWhenItGetsOlder() {
+        // Given
+        Item[] AllItems = new Item[]{
+                new Item("Good Wine", -1, 0),
+                new Item("Good Wine", 2, 30),
+                new Item("Good Wine", 2, 40),
+        };
+
+        GildedTros app = new GildedTros(AllItems);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertEquals(2, app.items[0].quality);
+        assertEquals(31, app.items[1].quality);
+        assertEquals(41, app.items[2].quality);
+    }
 }
