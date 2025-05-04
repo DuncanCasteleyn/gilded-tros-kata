@@ -175,4 +175,24 @@ class GildedTrosTest {
         assertEquals(31, app.items[1].quality);
         assertEquals(41, app.items[2].quality);
     }
+
+    @Test
+    void updateQuality_WhenExecuted_QualityIncreaseAndDecreasesTwiceAsFastWhenSellInHasPassed() {
+        // Given
+        Item[] AllItems = new Item[]{
+                new Item("Ring of Cleansening Code", 0, 50),
+                new Item("Good Wine", 0, 10),
+                new Item("Elixir of the SOLID", 0, 20),
+        };
+
+        GildedTros app = new GildedTros(AllItems);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertEquals(48, app.items[0].quality);
+        assertEquals(12, app.items[1].quality);
+        assertEquals(18, app.items[2].quality);
+    }
 }
