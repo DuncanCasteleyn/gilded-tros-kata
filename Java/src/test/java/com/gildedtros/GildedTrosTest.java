@@ -90,4 +90,69 @@ class GildedTrosTest {
         assertEquals(MAX_QUALITY, app.items[5].quality);
     }
 
+    @Test
+    void updateQuality_WhenExecuted_BackStagePassesShouldIncreaseQualityByTwoWhenTenDaysOrLess() {
+        // Given
+        Item[] AllItems = new Item[]{
+                new Item("Backstage passes for Re:Factor", 10, 10),
+                new Item("Backstage passes for Re:Factor", 9, 20),
+                new Item("Backstage passes for HAXX", 7, 20),
+                new Item("Backstage passes for HAXX", 6, 10)
+        };
+
+        GildedTros app = new GildedTros(AllItems);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertEquals(12, app.items[0].quality);
+        assertEquals(22, app.items[1].quality);
+        assertEquals(22, app.items[2].quality);
+        assertEquals(12, app.items[3].quality);
+    }
+
+    @Test
+    void updateQuality_WhenExecuted_BackStagePassesShouldIncreaseQualityByTwoWhenFiveDaysOrLess() {
+        // Given
+        Item[] AllItems = new Item[]{
+                new Item("Backstage passes for Re:Factor", 5, 10),
+                new Item("Backstage passes for Re:Factor", 4, 20),
+                new Item("Backstage passes for HAXX", 2, 20),
+                new Item("Backstage passes for HAXX", 1, 10)
+        };
+
+        GildedTros app = new GildedTros(AllItems);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertEquals(13, app.items[0].quality);
+        assertEquals(23, app.items[1].quality);
+        assertEquals(23, app.items[2].quality);
+        assertEquals(13, app.items[3].quality);
+    }
+
+    @Test
+    void updateQuality_WhenExecuted_BackStagePassesQualityIsZeroAfterEvent() {
+        // Given
+        Item[] AllItems = new Item[]{
+                new Item("Backstage passes for Re:Factor", 0, 20),
+                new Item("Backstage passes for Re:Factor", 0, 40),
+                new Item("Backstage passes for HAXX", 0, 50),
+                new Item("Backstage passes for HAXX", 0, 10)
+        };
+
+        GildedTros app = new GildedTros(AllItems);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertEquals(0, app.items[0].quality);
+        assertEquals(0, app.items[1].quality);
+        assertEquals(0, app.items[2].quality);
+        assertEquals(0, app.items[3].quality);
+    }
 }
