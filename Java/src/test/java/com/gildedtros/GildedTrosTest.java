@@ -13,7 +13,7 @@ class GildedTrosTest {
     private static final int MAX_QUALITY = 50;
 
     @Test
-    void updateQuality_WhenExecuted_QualityShouldNeverBeNegative() {
+    void updateQuality_QualityUpdated_QualityShouldNeverBeNegative() {
         // Given
         Item[] items = new Item[]{
                 new Item("Ring of Cleansening Code", 10, 0),
@@ -45,11 +45,11 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_NothingShouldChangeForLegendaryItem() {
+    void updateQuality_LegendaryItem_NothingShouldChange() {
         // Given
         Item[] AllItems = new Item[]{
-                new Item("B-DAWG Keychain", 0, 80),
-                new Item("B-DAWG Keychain", -1, 80)
+                new Item("B-DAWG Keychain", 0, LEGENDARY_ITEM_QUALITY),
+                new Item("B-DAWG Keychain", -1, LEGENDARY_ITEM_QUALITY)
         };
 
         GildedTros app = new GildedTros(AllItems);
@@ -65,7 +65,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_QualityShouldNeverIncreaseAboveFifty() {
+    void updateQuality_QualityIncreases_QualityShouldNeverIncreaseAboveFifty() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Good Wine", 2, MAX_QUALITY),
@@ -91,7 +91,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_BackStagePassesShouldIncreaseQualityByTwoWhenTenDaysOrLess() {
+    void updateQuality_EventInTenDaysOrLess_BackStagePassesShouldIncreaseQualityByTwo() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Backstage passes for Re:Factor", 10, 10),
@@ -113,7 +113,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_BackStagePassesShouldIncreaseQualityByTwoWhenFiveDaysOrLess() {
+    void updateQuality_SellInWhenFiveDaysOrLess_BackStagePassesShouldIncreaseQualityByThree() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Backstage passes for Re:Factor", 5, 10),
@@ -135,7 +135,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_BackStagePassesQualityIsZeroAfterEvent() {
+    void updateQuality_AfterEvent_BackStagePassesQualityIsZero() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Backstage passes for Re:Factor", 0, 20),
@@ -157,7 +157,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_WineQualityIncreaseWhenItGetsOlder() {
+    void updateQuality_WineGetsOlder_WineQualityIncreases() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Good Wine", -1, 0),
@@ -177,7 +177,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WhenExecuted_QualityIncreaseAndDecreasesTwiceAsFastWhenSellInHasPassed() {
+    void updateQuality_SellInHasPassed_QualityIncreaseAndDecreasesTwiceAsFast() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Ring of Cleansening Code", 0, 50),
