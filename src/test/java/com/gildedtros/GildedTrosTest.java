@@ -216,4 +216,25 @@ class GildedTrosTest {
         assertEquals(12, app.items[1].quality);
         assertEquals(18, app.items[2].quality);
     }
+
+
+    @Test
+    void updateItemsAfterDayPassed_SmellyItems_ShouldDecreasesTwiceAsFastInQuality() {
+        // Given
+        Item[] AllItems = new Item[]{
+                new Item("Duplicate Code", 20, 50),
+                new Item("Long Methods", 0, 10),
+                new Item("Ugly Variable Names", 30, 20),
+        };
+
+        GildedTros app = new GildedTros(AllItems);
+
+        // When
+        app.updateItemsAfterDayPassed();
+
+        // Then
+        assertEquals(48, app.items[0].quality);
+        assertEquals(8, app.items[1].quality);
+        assertEquals(18, app.items[2].quality);
+    }
 }
