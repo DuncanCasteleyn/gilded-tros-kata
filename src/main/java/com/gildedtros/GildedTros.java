@@ -4,7 +4,6 @@ import com.gildedtros.handler.ItemHandler;
 
 class GildedTros {
 
-    private static final String GOOD_WINE = "Good Wine";
     private static final String BACKSTAGE_PASSES_FOR_RE_FACTOR = "Backstage passes for Re:Factor";
     private static final String BACKSTAGE_PASSES_FOR_HAXX = "Backstage passes for HAXX";
     private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
@@ -34,7 +33,7 @@ class GildedTros {
                 .orElse(ItemHandler.DEFAULT);
     }
 
-    @Deprecated(forRemoval = true)
+/*    @Deprecated(forRemoval = true)
     private static void LegacyMethod(Item item) {
         if (!item.name.equals(GOOD_WINE)
             && !item.name.equals(BACKSTAGE_PASSES_FOR_RE_FACTOR)
@@ -87,5 +86,5 @@ class GildedTros {
                 }
             }
         }
-    }
+    }*/
 }

@@ -9,16 +9,16 @@ import com.gildedtros.sell.in.SellInModifier;
 public class DefaultItemHandler implements ItemHandler {
     public static final DefaultItemHandler SINGLETON = new DefaultItemHandler();
 
-    private final QualityModifier defaultQualityModifier = DefaultQualityModifier.SINGLETON;
-    private final SellInModifier defaultSellInModifier = DefaultSellInModifier.SINGLETON;
+    private final QualityModifier qualityModifier = DefaultQualityModifier.SINGLETON;
+    private final SellInModifier sellInModifier = DefaultSellInModifier.SINGLETON;
 
     @Override public boolean handles(Item item) {
         return true;
     }
 
     @Override public void updateItemForNextDay(Item item) {
-        defaultQualityModifier.ageItem(item);
+        qualityModifier.ageItem(item);
 
-        defaultSellInModifier.dayHasPassed(item);
+        sellInModifier.dayHasPassed(item);
     }
 }
