@@ -16,7 +16,7 @@ class GildedTros {
         this.items = items;
     }
 
-    public void updateQuality() {
+    public void updateItemsAfterDayPassed() {
         for (Item item : items) {
             if (!item.name.equals(GOOD_WINE)
                 && !item.name.equals(BACKSTAGE_PASSES_FOR_RE_FACTOR)

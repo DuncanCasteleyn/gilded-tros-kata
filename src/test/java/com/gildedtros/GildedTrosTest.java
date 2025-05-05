@@ -13,7 +13,7 @@ class GildedTrosTest {
     private static final int MAX_QUALITY = 50;
 
     @Test
-    void updateQuality_QualityUpdated_QualityShouldNeverBeNegative() {
+    void updateItemsAfterDayPassed_QualityUpdated_ItemsAfterDayPassedShouldNeverBeNegative() {
         // Given
         Item[] items = new Item[]{
                 new Item("Ring of Cleansening Code", 10, 0),
@@ -33,7 +33,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(items);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         final int lowestQuality = Arrays.stream(app.items)
@@ -45,7 +45,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_LegendaryItem_NothingShouldChange() {
+    void updateItemsAfterDayPassed_LegendaryItem_NothingShouldChange() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("B-DAWG Keychain", 0, LEGENDARY_ITEM_QUALITY),
@@ -55,7 +55,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(LEGENDARY_ITEM_QUALITY, app.items[0].quality);
@@ -65,7 +65,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_QualityIncreases_QualityShouldNeverIncreaseAboveFifty() {
+    void updateItemsAfterDayPassed_QualityIncreases_ItemsAfterDayPassedShouldNeverIncreaseAboveFifty() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Good Wine", 2, MAX_QUALITY),
@@ -79,7 +79,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(MAX_QUALITY, app.items[0].quality);
@@ -91,7 +91,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_EventInTenDaysOrLess_BackStagePassesShouldIncreaseQualityByTwo() {
+    void updateItemsAfterDayPassed_EventInTenDaysOrLess_BackStagePassesShouldIncreaseItemsAfterDayPassedByTwo() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Backstage passes for Re:Factor", 10, 10),
@@ -103,7 +103,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(12, app.items[0].quality);
@@ -113,7 +113,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_SellInWhenFiveDaysOrLess_BackStagePassesShouldIncreaseQualityByThree() {
+    void updateItemsAfterDayPassed_SellInWhenFiveDaysOrLess_BackStagePassesShouldIncreaseItemsAfterDayPassedByThree() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Backstage passes for Re:Factor", 5, 10),
@@ -125,7 +125,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(13, app.items[0].quality);
@@ -135,7 +135,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_AfterEvent_BackStagePassesQualityIsZero() {
+    void updateItemsAfterDayPassed_AfterEvent_BackStagePassesItemsAfterDayPassedIsZero() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Backstage passes for Re:Factor", 0, 20),
@@ -147,7 +147,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(0, app.items[0].quality);
@@ -157,7 +157,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_WineGetsOlder_WineQualityIncreases() {
+    void updateItemsAfterDayPassed_WineGetsOlder_WineItemsAfterDayPassedIncreases() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Good Wine", -1, 0),
@@ -168,7 +168,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(2, app.items[0].quality);
@@ -177,7 +177,7 @@ class GildedTrosTest {
     }
 
     @Test
-    void updateQuality_SellInHasPassed_QualityIncreaseAndDecreasesTwiceAsFast() {
+    void updateItemsAfterDayPassed_SellInHasPassed_ItemsAfterDayPassedIncreaseAndDecreasesTwiceAsFast() {
         // Given
         Item[] AllItems = new Item[]{
                 new Item("Ring of Cleansening Code", 0, 50),
@@ -188,7 +188,7 @@ class GildedTrosTest {
         GildedTros app = new GildedTros(AllItems);
 
         // When
-        app.updateQuality();
+        app.updateItemsAfterDayPassed();
 
         // Then
         assertEquals(48, app.items[0].quality);
