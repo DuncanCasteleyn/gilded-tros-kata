@@ -11,7 +11,8 @@ public interface ItemHandler {
     Collection<ItemHandler> NON_DEFAULT_HANDLERS = List.of(
             GoodWineHandler.SINGLETON,
             InterestingBackStagePassesHandler.SINGLETON,
-            LegendaryItemHandler.SINGLETON
+            LegendaryItemHandler.SINGLETON,
+            SmellyItemHandler.SINGLETON
     );
 
     boolean handles(Item item);
