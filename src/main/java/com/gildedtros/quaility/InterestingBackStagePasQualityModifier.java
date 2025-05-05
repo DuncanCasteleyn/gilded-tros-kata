@@ -16,12 +16,20 @@ public class InterestingBackStagePasQualityModifier implements QualityModifier {
             return;
         }
 
+        if(item.quality >= MAX_QUALITY) {
+            return;
+        }
+
         if (item.sellIn <= 10) {
             item.quality += 2;
         }
 
         if (item.sellIn <= 5) {
             item.quality += 1;
+        }
+
+        if(item.quality >= MAX_QUALITY) {
+            item.quality = MAX_QUALITY;
         }
     }
 }
