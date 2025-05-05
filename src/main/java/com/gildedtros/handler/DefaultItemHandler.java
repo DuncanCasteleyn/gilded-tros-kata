@@ -18,6 +18,7 @@ public class DefaultItemHandler implements ItemHandler {
 
     @Override public void updateItemForNextDay(Item item) {
         defaultQualityModifier.ageItem(item);
+
         defaultSellInModifier.dayHasPassed(item);
     }
 }

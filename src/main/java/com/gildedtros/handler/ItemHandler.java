@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ItemHandler {
-    Collection<ItemHandler> handlers = List.of(
-            DefaultItemHandler.SINGLETON
+    ItemHandler DEFAULT = DefaultItemHandler.SINGLETON;
+    Collection<ItemHandler> NON_DEFAULT_HANDLERS = List.of(
     );
 
     boolean handles(Item item);
