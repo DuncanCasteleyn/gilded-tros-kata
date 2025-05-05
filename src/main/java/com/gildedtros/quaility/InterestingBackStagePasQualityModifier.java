@@ -2,11 +2,11 @@ package com.gildedtros.quaility;
 
 import com.gildedtros.Item;
 
-public class BackStagePasModifier implements QualityModifier {
+public class InterestingBackStagePasQualityModifier implements QualityModifier {
 
-    public static final BackStagePasModifier SINGLETON = new BackStagePasModifier();
+    public static final InterestingBackStagePasQualityModifier SINGLETON = new InterestingBackStagePasQualityModifier();
 
-    private BackStagePasModifier() {
+    private InterestingBackStagePasQualityModifier() {
     }
 
 

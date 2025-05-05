@@ -4,12 +4,6 @@ import com.gildedtros.handler.ItemHandler;
 
 class GildedTros {
 
-
-    private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
-    private static final int FIFTY = 50;
-    private static final int ELEVEN = 11;
-    private static final int SIX = 6;
-
     Item[] items;
 
     public GildedTros(Item[] items) {
