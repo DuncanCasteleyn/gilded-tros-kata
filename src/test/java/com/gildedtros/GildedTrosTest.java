@@ -13,6 +13,27 @@ class GildedTrosTest {
     private static final int MAX_QUALITY = 50;
 
     @Test
+    void updateItemsAfterDayPassed_NormalItems_ShouldHaveDecreasedSellInAndQuality() {
+        // Given
+        Item[] items = new Item[]{
+                new Item("Ring of Cleansening Code", 10, 10),
+                new Item("Elixir of the SOLID", 5, 5),
+        };
+
+        GildedTros app = new GildedTros(items);
+
+        // When
+        app.updateItemsAfterDayPassed();
+
+        // Then
+        assertEquals(9,items[0].sellIn);
+        assertEquals(4,items[1].sellIn);
+        assertEquals(9,items[0].quality);
+        assertEquals(4,items[1].quality);
+    }
+
+
+    @Test
     void updateItemsAfterDayPassed_QualityUpdated_ItemsAfterDayPassedShouldNeverBeNegative() {
         // Given
         Item[] items = new Item[]{
