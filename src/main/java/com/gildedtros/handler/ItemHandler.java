@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface ItemHandler {
     ItemHandler DEFAULT = DefaultItemHandler.SINGLETON;
+
     Collection<ItemHandler> NON_DEFAULT_HANDLERS = List.of(
-            GoodWineHandler.SINGLETON
+            GoodWineHandler.SINGLETON,
+            BackStagePassesHandler.SINGLETON
     );
 
     boolean handles(Item item);

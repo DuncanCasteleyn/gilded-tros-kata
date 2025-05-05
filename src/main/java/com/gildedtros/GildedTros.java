@@ -4,8 +4,7 @@ import com.gildedtros.handler.ItemHandler;
 
 class GildedTros {
 
-    private static final String BACKSTAGE_PASSES_FOR_RE_FACTOR = "Backstage passes for Re:Factor";
-    private static final String BACKSTAGE_PASSES_FOR_HAXX = "Backstage passes for HAXX";
+
     private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
     private static final int FIFTY = 50;
     private static final int ELEVEN = 11;
